@@ -1,6 +1,12 @@
 import React from 'react';
-import { StyledButton } from './styles/Button.styled';
+import { Link } from 'react-router-dom';
 
-export const Button = ({ text, link }) => {
-  return <StyledButton href={link}>{text}</StyledButton>;
+const StyledButton = ({ text, styles, link }) => {
+  return (
+    <Link to={link}>
+      <button className={styles}>{text}</button>
+    </Link>
+  );
 };
+
+export default StyledButton;
