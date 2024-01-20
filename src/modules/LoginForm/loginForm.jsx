@@ -1,6 +1,13 @@
 import React from 'react';
-import { Button } from '../../ui/Button/Button';
+import { StyledButton } from '../../ui';
+import { useForm } from 'react-hook-form';
 
 export const LoginForm = () => {
-  return <Button>loginForm</Button>;
+  return (
+    <form>
+      <input type="email" className="input" />
+      <input type="password" className="input" />
+      <StyledButton styles="btn-solid" text="Sign In" />
+    </form>
+  );
 };

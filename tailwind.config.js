@@ -8,6 +8,7 @@ export default {
         secondary: '#1E1E1E',
         accent: '#6C63FF',
         warning: '#ED7878',
+        input: '#F2F2F2',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],

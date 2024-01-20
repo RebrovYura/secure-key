@@ -4,16 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  height: 100%
+}
+
 @layer components {
   .btn {
-    @apply min-w-[112px] rounded-[5px] px-[22px] py-[10px] font-semibold tracking-[1.44px]
+    @apply min-w-[112px] rounded-[10px] px-[22px] py-[10px] font-semibold tracking-[1.44px] hover:shadow-lg hover:scale-[1.05] transition-all duration-[0.3s] 
   }
 
   .btn-solid {  
-    @apply btn border-[1px] bg-secondary border-secondary text-primary shadow-sm;
+    @apply btn border-[2px] bg-secondary border-secondary text-primary shadow-sm;
   }
 
   .btn-outline {
-    @apply btn border-[1px] bg-transparent border-secondary text-secondary;
+    @apply btn border-[2px] bg-transparent border-secondary text-secondary;
+  }
+
+  .btn-ghost {
+    @apply btn border-[2px] bg-transparent border-transparent hover:bg-slate-200 transition-colors duration-[0.3s]
+  }
+
+  .input {
+    @apply border-[2px] border-input rounded-[5px] bg-input p-[10px]
   }
 }
