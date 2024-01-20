@@ -20,7 +20,7 @@ const RootLayout = ({ children }) => {
         exit="exit"
         variants={variants}
         transition={{ duration: 0.5, type: 'easeInOut' }}
-        className="flex-auto flex justify-center"
+        className="flex-auto flex justify-center items-center"
       >
         {children}
       </motion.main>

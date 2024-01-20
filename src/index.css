@@ -26,6 +26,10 @@ html, body {
   }
 
   .input {
-    @apply border-[2px] border-input rounded-[5px] bg-input p-[10px]
+    @apply border-[2px] border-input rounded-[5px] bg-input px-[10px] py-[15px]
+  }
+
+  .input:focus {
+    @apply border-warning
   }
 }
