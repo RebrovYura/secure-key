@@ -1,24 +1,41 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { ErrorLabel, Frame } from '../../ui';
+import { fetchLogin, selectisAuth } from '../../redux/slices/auth';
 import login from '../../../public/svg/login.svg';
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+  const isAuth = useSelector(selectisAuth);
+
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm({
     mode: 'onSubmit',
+    defaultValues: {
+      email: 'yurirebrov01@gmail.com',
+      password: 'password123',
+    },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const response = await dispatch(fetchLogin(data));
+    if (response.payload.token) {
+      window.localStorage.setItem('token', response.payload.token);
+    }
   };
 
+  if (isAuth) {
+    return <Navigate to="/storage" />;
+  }
+
   return (
-    <div className="max-w-[720px] w-full flex gap-x-[50px] py-[35px] px-[20px] justify-center items-center shadow-formShadow rounded-[10px]">
+    <div className="max-w-[720px] w-full flex gap-x-[50px] py-[35px] px-[20px] justify-center items-center rounded-[10px]">
       <Frame content={<img src={login} alt="Login form" />} />
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -74,10 +91,7 @@ export const LoginForm = () => {
           value="Sign In"
           className="btn-solid w-full mt-[10px] cursor-pointer"
         />
-        <Link
-          to="/signup"
-          className="text-[12px] tracking-[1.08px] hover:text-accent transition-colors"
-        >
+        <Link to="/signup" className="link">
           Don’t have an account? Sign up
         </Link>
       </form>

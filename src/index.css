@@ -29,7 +29,7 @@ html, body {
     @apply border-[2px] border-input rounded-[5px] bg-input px-[10px] py-[15px]
   }
 
-  .input:focus {
-    @apply border-warning
+  .link {
+    @apply text-[12px] tracking-[1.08px] hover:text-accent transition-colors hover:underline;
   }
 }
